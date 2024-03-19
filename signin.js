@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const senha = document.getElementById('senha').value.trim(); // Obter o valor da senha
 
     // Autenticar com Firebase usando a senha fornecida e um email fictício
-    firebase.auth().signInWithEmailAndPassword('admin@gmail.com','admin8@gmail.com', senha)
+    firebase.auth().signInWithEmailAndPassword('admin@gmail.com', senha)
       .then(() => {
         console.log("Login bem-sucedido.");
         hideLoading();
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .catch((error) => {
         console.error("Erro durante o login:", error);
         hideLoading();
-        showErrorMessage('Senha incorreta. Verifique e tente novamente.');
+        showErrorMessage('CPF incorreta. Verifique e tente novamente.');
       });
   }
 
