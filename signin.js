@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .catch((error) => {
         console.error("Erro durante o login:", error);
         hideLoading();
-        showErrorMessage('CPF incorretp. Verifique e tente novamente.');
+        showErrorMessage('CPF incorreto! Verifique e tente novamente.');
       });
   }
 
