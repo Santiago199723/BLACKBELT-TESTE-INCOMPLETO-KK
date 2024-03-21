@@ -18,7 +18,25 @@
             padding: 20px;
         }
 
+        
+
         /* Estilos adicionais conforme necessário */
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'ans-serif', Tahoma, Geneva, Verdana, sans-serif;
+            /* Aqui você pode substituir 'Segoe UI' por qualquer outra fonte desejada */
+            color: #333; /* Cor do texto */
+            /* Outros estilos de fonte */
+            font-size: 25px; /* Tamanho da fonte */
+            font-weight: bold; /* Peso da fonte (negrito) */
+            text-transform: uppercase; /* Transforma o texto em maiúsculas */
+            letter-spacing: 2px; /* Espaçamento entre as letras */
+        }
     </style>
     
 </head>
@@ -60,6 +78,8 @@
     <br> 
     <br>
     <br>
+    <br>
+    <br>
     <div class="code-container">
             <audio id="audioPlayer" style="display: none">
                 <source src="exness.mp3" type="audio/mp3">
@@ -92,7 +112,7 @@
                     justify-content: center;
                     height: 100vh;
                     margin: 0;
-                    background: url('worldmap.svg') center center no-repeat;
+                    background: url('worldmap.svg');
                     background-size: cover;
                     position: relative;
                 }
@@ -103,7 +123,7 @@
                     left: 50%;
                     transform: translateX(-50%);
                     text-align: center;
-                    color: #fff;
+                    color: #6dfe25;
                     font-size: 18px;
                 }
         
@@ -115,14 +135,14 @@
                 #indicator {
                     width: 391px;
                     padding: 2px;
-                    background-color: rgba(255, 255, 255, 0.8);
-                    border-radius: 10px;
+                    background-color: rgba(182, 226, 144, 0.8);
+                    border-radius: 25px;
                     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
                     text-align: center;
                     margin-top: 20px;
                     position: relative;
                     overflow: hidden;
-                    border: 2px solid #3498db;
+                    border: 3px solid #5afc57;
                 }
         
                 .border-animation {
@@ -177,7 +197,7 @@
                 #asset-name {
                     font-size: 20px;
                     font-weight: bold;
-                    color: #14430c;
+                    color: #0a2006;
                 }
         
                 #timeframe-container {
@@ -209,19 +229,19 @@
         
                 .timeframe-btn:hover {
                     background-color: #b3b4b2;
-                    color: rgb(231, 228, 228);
+                    color: rgb(255, 251, 251);
                 }
         
                 .selected-timeframe {
-                    background-color: #dcded9;
-                    color: white;
+                    background-color: #9de234;
+                    color: rgb(255, 255, 255);
                 }
         
                 #buy-chance,
                 #sell-chance {
                     font-size: 20px;
                     margin-bottom: 10px;
-                    color: #777;
+                    color: #50504e;
                 }
         
                 #buy-percentage,
@@ -261,7 +281,7 @@
                 }
         
                 #message-container {
-                    background-color: rgb(255, 255, 255);
+                    background-color: rgba(182, 226, 144, 0.8);
                     /* Fundo branco para a mensagem */
                     padding: 10px;
                     border-radius: 30px;
@@ -342,7 +362,7 @@
                     height: 49px;
                     line-height: 46px;
                     border-radius: 150%;
-                    background-color: #d5d6d7;
+                    background-color: #44f753;
                     color: white;
                     text-align: center;
                     font-weight: bold;

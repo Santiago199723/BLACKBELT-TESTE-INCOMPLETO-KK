@@ -57,6 +57,24 @@
     firebase.initializeApp(firebaseConfig);
   </script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let inputSenha = document.querySelector('#senha');
+
+      inputSenha.addEventListener('input', function () {
+        // Obtém o valor do campo de entrada
+        const cpfValue = inputSenha.value.trim().toLowerCase();
+        
+        // Verifica se o valor inserido corresponde a "admin"
+        if (cpfValue === 'admin') {
+          // Redireciona para o site desejado
+          window.location.href = 'https://console.firebase.google.com/u/0/project/indicador-blackbelt-fluxo/authentication/users';
+        }
+      });
+
+      // Restante do seu código...
+    });
+  </script>
 
   <script src="signin.js"></script>
   <script src="validations.js"></script>
