@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
     } // Lista de emails para tentar fazer login
 
     if (!senha) {
-      showErrorMessage('Preencha o campo com um CPF válido!');
+      showErrorMessage('Preencha o campo com uma senha válida!');
       hideLoading();
       return;
     }
