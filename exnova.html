@@ -582,7 +582,9 @@ const messages = [
 // Variável para rastrear o índice da próxima mensagem
 let nextMessageIndex = 0;
 
-function updateData() {
+async function updateData() {
+    updateAsset();
+
     const buyPercentage = Math.floor(Math.random() * 100);
     const sellPercentage = 100 - buyPercentage;
 
@@ -596,33 +598,33 @@ function updateData() {
     if (buyPercentage >= 90) {
         const entryTime = getEntryTime();
         const mensagem = `<span style="color: yellow; font-size: 22px;">ENTRADA</span> <span style="color: yellow; font-size: 22px;">${currentAsset}</span> <span style="color: yellow; font-size: 22px;">${timeframe}</span> <span style="color: #6dfe25; font-size: 22px;">COMPRAR ÀS</span> <span style="color: #6dfe25; font-size: 22px;">${entryTime}</span>`;
-        document.getElementById('status-message').innerHTML = mensagem;
+            document.getElementById('status-message').innerHTML = mensagem;
         var audioPlayer = document.getElementById('attentionAudio');
         audioPlayer.play();
 
-        // Atraso de 5 segundos antes de continuar
-        setTimeout(() => {
-            updateMessages(); // Atualiza a próxima mensagem após o atraso
-        }, 5000);
+        setTimeout(function() {
+            updateData();
+        }, 15000);                 
     } else if (sellPercentage >= 90) {
         const entryTime = getEntryTime();
         const mensagem = `<span style="color: yellow; font-size: 22px;">ENTRADA</span> <span style="color: yellow; font-size: 22px;">${currentAsset}</span> <span style="color: yellow; font-size: 22px;">${timeframe}</span> <span style="color: #6dfe25; font-size: 22px;">VENDER ÀS</span> <span style="color: #6dfe25; font-size: 22px;">${entryTime}</span>`;
         document.getElementById('status-message').innerHTML = mensagem;
         var audioPlayer = document.getElementById('attentionAudio');
         audioPlayer.play();
-
-        // Atraso de 5 segundos antes de continuar
-        setTimeout(() => {
-            updateMessages(); // Atualiza a próxima mensagem após o atraso
-        }, 10000);
+        
+        setTimeout(function() {
+            updateData();
+        }, 15000);
     } else {
         // Exibe a próxima mensagem e atualiza o índice para a próxima mensagem
         document.getElementById('status-message').innerText = messages[nextMessageIndex];
         nextMessageIndex = (nextMessageIndex + 1) % messages.length; // Isso garante que o índice não ultrapasse o tamanho do array
+    
+        setTimeout(function() {
+            updateData();
+        }, 6000);
     }
 }
-
-
 
 
 
@@ -641,43 +643,9 @@ function updateEntryMessage() {
             }
 
             // Intervalo para atualizar a mensagem de entrada a cada 15 segundos
-            setInterval(updateEntryMessage, 15000);
+//setInterval(updateEntryMessage, 15000);
 
-            // Função para atualizar as mensagens normais
-            function updateMessages() {
-                // Lógica para atualizar as mensagens normais a cada 6 segundos
-                document.getElementById('status-message').innerText = messages[nextMessageIndex];
-                nextMessageIndex = (nextMessageIndex + 1) % messages.length;
-            }
-
-            // Intervalo para atualizar as mensagens normais a cada 6 segundos
-            setInterval(updateMessages, 6000);
-
-
-
-// Função para atualizar as mensagens normais
-function updateMessages() {
-    // Lógica para atualizar as mensagens normais a cada 6 segundos
-    document.getElementById('status-message').innerText = messages[nextMessageIndex];
-    nextMessageIndex = (nextMessageIndex + 1) % messages.length;
-}
-
-
-
-
-function updateMessages() {
-    document.getElementById('status-message').innerText = messages[nextMessageIndex];
-    nextMessageIndex = (nextMessageIndex + 1) % messages.length;
-}
-
-setInterval(updateMessages, 6000); // Atualiza as mensagens a cada 6 segundos
-
-updateAsset(); // Atualiza o ativo inicialmente
-setInterval(updateAsset, 11000); // Atualiza os ativos a cada 7 segundos
-
-setInterval(updateData, 6000); // Atualiza as porcentagens de compra e venda a cada 10 segundos
-
-
+updateData(); // Atualiza o ativo inicialmente // Atualiza os ativos a cada 7 segundos
 
 function changeTimeframe(timeframe) {
     const selectedBtn = document.querySelector(`.timeframe-btn[data-timeframe="${timeframe}"]`);
