@@ -43,8 +43,19 @@
     </div>
   </div>
 
-  <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyDsIC01Bz0ZKDknbiAl1BThcZ-kwADfuWA",
+    authDomain: "indicador-blackbelt-fluxo.firebaseapp.com",
+    projectId: "indicador-blackbelt-fluxo",
+    storageBucket: "indicador-blackbelt-fluxo.appspot.com",
+    messagingSenderId: "48320948097",
+    appId: "1:48320948097:web:c42301eb03a5dedce5aa80"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -57,7 +68,7 @@
         // Verifica se o valor inserido corresponde a "admin"
         if (cpfValue === 'admin') {
           // Redireciona para o site desejado
-          window.location.href = 'admin/login.html';
+          window.location.href = 'TELANOVO.html';
         }
       });
 
@@ -65,8 +76,8 @@
     });
   </script>
 
-  <script src="index.js"></script>
-  <script src="firebase.js"></script>
+  <script src="signin.js"></script>
+  <script src="validations.js"></script>
   <script src="loading.js"></script>
 </body>
 </html>

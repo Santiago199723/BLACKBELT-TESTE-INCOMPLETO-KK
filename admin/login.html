@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../signin.css" />
+    <link rel="icon" type="image/png" href="icone.png" />
+    <!-- Substitua pelo caminho real do seu ícone -->
+    <style></style>
+    <title>LOGIN DO ADM</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Login</h1>
+        <div id="msg"></div>
+        <div class="label-float">
+          <input type="text" id="usuario" placeholder="" required />
+          <label id="userLabel" for="usuario">E-mail do Adm</label>
+        </div>
+        <div class="label-float">
+          <input type="password" id="senha" placeholder="" required />
+          <label id="senhaLabel" for="senha">Senha do Adm</label>
+          <i class="fa fa-eye" aria-hidden="true"></i>
+        </div>
+        <div class="justify-center">
+          <button id="btnEntrar">Entrar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
+
+    <script>
+      let btn = document.querySelector(".fa-eye");
+      let inputSenha = document.querySelector("#senha");
+      let msg = document.getElementById("msg");
+
+      btn.addEventListener("click", () => {
+        if (inputSenha.getAttribute("type") === "password") {
+          inputSenha.setAttribute("type", "text");
+        } else {
+          inputSenha.setAttribute("type", "password");
+        }
+      });
+
+      function login(email, password) {
+        const adminsRef = firebase
+          .database()
+          .ref("admins")
+          .orderByChild("email")
+          .equalTo(email);
+
+        adminsRef.once("value", (snapshot) => {
+          if (snapshot.exists()) {
+            snapshot.forEach((childSnapshot) => {
+              const admin = childSnapshot.val();
+              if (admin.password === password) {
+                msg.textContent = "Login exitoso!";
+                msg.style.display = "block";
+                localStorage.setItem("admin", email);
+                setTimeout(() => {
+                  window.location.href = "/LICENCIADOR.html";
+                }, 2000);
+              } else {
+                msg.textContent = "Senha incorreta. Por favor, tente novamente";
+                msg.style.display = "block";
+              }
+            });
+          } else {
+            msg.textContent =
+              "Usuário não encontrado. Por favor, verifique o email";
+
+            msg.style.display = "block";
+          }
+        });
+      }
+
+      document
+        .getElementById("btnEntrar")
+        .addEventListener("click", function () {
+          const usuario = document.getElementById("usuario").value.trim();
+
+          login(usuario, inputSenha.value.trim());
+        });
+    </script>
+
+    <script src="../firebase.js"></script>
+    <script src="../loading.js"></script>
+  </body>
+</html>

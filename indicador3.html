@@ -70,15 +70,29 @@
 <meta name="msapplication-TileImage" content="https://dxtutoriais.com.br/astronbot/wp-content/uploads/2023/07/ASTRONBOT-LOGOMARCA.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></head>
 <body data-rsssl="1" data-cmplz="1" class="page-template page-template-elementor_canvas page page-id-945 wp-custom-logo wp-embed-responsive user-registration-page user-registration-account unselectable elementor-default elementor-template-canvas elementor-kit-4 elementor-page elementor-page-945">
-			<div data-elementor-type="wp-page" data-elementor-id="945" class="elementor elementor-945" data-elementor-post-type="page">
+	<div class="license-container"><p id="license-data"></p></div>		
+	<div data-elementor-type="wp-page" data-elementor-id="945" class="elementor elementor-945" data-elementor-post-type="page">
 									<section data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-section elementor-top-section elementor-element elementor-element-b37ae11 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b37ae11" data-element_type="section">
 						<div class="elementor-container elementor-column-gap-default">
 					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d07cd45" data-id="d07cd45" data-element_type="column">
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-0dc3472 elementor-widget elementor-widget-image" data-id="0dc3472" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-			<style>/*! elementor - v3.15.0 - 20-08-2023 */
-.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>												<img decoding="async" width="300" height="74" src="images/DFE2nMt9Vqh0.png" class="attachment-medium size-medium wp-image-64" alt="" srcset="images/DFE2nMt9Vqh0.png 300w, images/g9ruAZPGI7TE.png 474w" sizes="(max-width: 300px) 100vw, 300px">															</div>
+				<div class="elementor-widget-container">	
+			<style>
+				.license-container {
+					max-height: 40px;
+					display: none;
+					border-radius: 10px;
+					background-color: green;
+					align-items: center;
+					justify-content: center;
+					text-align: center;
+				}
+			#license-data {
+				padding: 10px;
+			color: greenyellow;
+			}
+.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>												<img decoding="async" width="300" height="74" src="images/DFE2nMt9Vqh0.png" class="attachment-medium size-medium wp-image-64" alt="" srcset="images/DFE2nMt9Vqh0.png 300w, images/DFE2nMt9Vqh0.png 474w" sizes="(max-width: 300px) 100vw, 300px">															</div>
 				</div>
 				<div class="elementor-element elementor-element-3928b6d elementor-widget elementor-widget-html" data-id="3928b6d" data-element_type="widget" data-widget_type="html.default">
 				<div class="elementor-widget-container">
@@ -406,11 +420,16 @@
     
                     <button onclick="sair()">Sair</button>
     
+  <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
+
                     <script>
                         function sair() {
                               // Redirecionar para o index.html
                             window.location.href = 'index.html';
         }
                    </script>
+				   <script src="session.js"></script>
+				   <script src="firebase.js"></script>
 	        </body>
 		   </html>
