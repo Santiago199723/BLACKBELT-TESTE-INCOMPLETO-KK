@@ -49,8 +49,9 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       let inputSenha = document.querySelector('#senha');
+      let btnEntrar = document.querySelector('#btnEntrar');
 
-      inputSenha.addEventListener('input', function () {
+      btnEntrar.addEventListener('click', function () {
         // Obtém o valor do campo de entrada
         const cpfValue = inputSenha.value.trim().toLowerCase();
         
@@ -58,6 +59,8 @@
         if (cpfValue === 'admin') {
           // Redireciona para o site desejado
           window.location.href = 'admin/login.html';
+        } else {
+          alert('CPF incorreto. Tente novamente.');
         }
       });
 
